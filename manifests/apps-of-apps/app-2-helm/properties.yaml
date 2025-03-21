@@ -1,0 +1,8 @@
+EMAIL: vamsi.krishna@tensure.io
+APP_NAME: second-app
+DNS_NAME: secondapp.ioinfo.shop
+SERVICE_NAME: second-app-service
+SECRET_NAME: second-app-secret
+INGRESS_REQUIRED: "yes"
+namespace: tensure
+SERVER: https://acme-staging-v02.api.letsencrypt.org/directory

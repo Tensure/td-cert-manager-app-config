@@ -1,0 +1,8 @@
+EMAIL: vamsi.krishna@tensure.io
+APP_NAME: sample-app
+DNS_NAME: sampleapp.ioinfo.shop
+SERVICE_NAME: sample-app-service
+SECRET_NAME: sample-app-secret
+INGRESS_REQUIRED: "yes"
+namespace: tensure
+SERVER: https://acme-v02.api.letsencrypt.org/directory

@@ -21,14 +21,14 @@ spec:
     spec:
       project: default
       sources:
-        - repoURL: https://github.com/Tensure/td-cert-manager.git
-          targetRevision: version-1
+        - repoURL: https://github.com/Tensure/td-cert-manager-app-config.git
+          targetRevision: main
           path: "{{path1}}"
           directory:
             recurse: true
             exclude: properties.yaml
-        - repoURL: https://github.com/Tensure/td-cert-manager.git
-          targetRevision: version-1
+        - repoURL: https://github.com/Tensure/td-cert-manager-app-config.git
+          targetRevision: main
           path: "{{path2}}"
           directory:
             recurse: true

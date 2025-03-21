@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: multi-domain-cert
+  namespace: tensure
+spec:
+  secretName: multi-domain-secret
+  dnsNames:
+    - "example.com"
+    - "example.org"
+    - "app.example.com"
+    - "dashboard.example.org"
+  issuerRef:
+    name: tensure-issuer
+    kind: ClusterIssuer

@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-cert-duration
+  namespace: tensure
+spec:
+  secretName: wildcard-cert-secret-duration
+  dnsNames:
+    - "*.ioinfo.shop"
+  issuerRef:
+    name: tensure-issuer-duration
+    kind: ClusterIssuer
+  duration: 1h
+  renewBefore: 5m

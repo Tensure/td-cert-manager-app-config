@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wildcard-ingress-duration
+  namespace: tensure
+spec:
+  tls:
+  - hosts:
+      - app7.ioinfo.shop
+      - app8.ioinfo.shop
+    secretName: wildcard-cert-secret-duration
+  rules:
+  - host: app7.ioinfo.shop
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sample-app-service
+            port:
+              number: 80
+  - host: app8.ioinfo.shop
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: second-app-service
+            port:
+              number: 80
