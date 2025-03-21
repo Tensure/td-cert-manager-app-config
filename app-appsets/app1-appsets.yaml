@@ -27,15 +27,15 @@ spec:
           directory:
             recurse: true
             exclude: properties.yaml
-        # - repoURL: https://github.com/Tensure/td-cert-manager-app-config.git
-        #   targetRevision: main
-        #   path: "{{path2}}"
-        #   directory:
-        #     recurse: true
-        #     exclude: properties.yaml
+        - repoURL: https://github.com/Tensure/td-cert-manager-app-config.git
+          targetRevision: main
+          path: "{{path2}}"
+          directory:
+            recurse: true
+            exclude: properties.yaml
       destination:
         server: "{{url}}"
-        namespace: "{{cluster}}"
+        namespace: "tensure"
       syncPolicy:
         automated: {}
         syncOptions:
