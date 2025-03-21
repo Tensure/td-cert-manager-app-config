@@ -2,7 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: demo-ingress
-  kubernetes.io/ingress.class: gce
+  annotations:
+    kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.allow-http: "true"
     cert-manager.io/cluster-issuer: demo-issuer
   namespace: tensure
