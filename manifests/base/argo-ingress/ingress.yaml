@@ -1,25 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: demo-ingress
+  name: demo-ingress-argo
   annotations:
     kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.allow-http: "true"
-    cert-manager.io/cluster-issuer: demo-issuer
-  namespace: tensure
+    cert-manager.io/cluster-issuer: demo-issuer-argo
+  namespace: argocd
 spec:
   tls:
   - hosts:
-      - app1.ioinfo.shop
-    secretName: demo-secret
+      - argocd.test.ioinfo.shop
+    secretName: demo-secret-argo
   rules:
-  - host: app1.ioinfo.shop
+  - host: argocd.test.ioinfo.shop
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: sample-app-service
+            name: argo-cd-argocd-server
             port:
               number: 80
