@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: manual-app-service
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  namespace: manual
+spec:
+  selector:
+    app: manual-app
+  ports:
+    - protocol: 'TCP'
+      port: 80
+      targetPort: 8080
+  type: NodePort

@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: manual-ingress
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.allow-http: "true"
+  namespace: manual
+spec:
+  tls:
+  - hosts:
+      - manualapp.ioinfo.shop
+    secretName: manualapp-tls
+  rules:
+  - host: manualapp.ioinfo.shop
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: manual-app-service
+            port:
+              number: 80

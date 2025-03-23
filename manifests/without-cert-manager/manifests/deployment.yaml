@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: manual-deployment
+  annotations:
+    argocd.argoproj.io/sync-wave: "-2"
+  namespace: manual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: manual-app
+  template:
+    metadata:
+      labels:
+        app: manual-app
+    spec:
+      containers:
+        - name: manual-node
+          image: vamckrish08/kubernetes:1
