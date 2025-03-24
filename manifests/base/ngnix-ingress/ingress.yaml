@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.allow-http: "true"
+    cert-manager.io/cluster-issuer: nginx-issuer
+    external-dns.alpha.kubernetes.io/hostname: nginx.ioinfo.shop
+spec:
+  tls:
+  - hosts:
+      - nginx.ioinfo.shop
+    secretName: nginx-secret
+  rules:
+  - host: nginx.ioinfo.shop
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
