@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-manual
+  labels:
+    app: nginx-manual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-manual
+  template:
+    metadata:
+      labels:
+        app: nginx-manual
+    spec:
+      containers:
+      - name: nginx-manual
+        image: nginx:latest
+        ports:
+        - containerPort: 80

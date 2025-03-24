@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress-manual
+  annotations:
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.allow-http: "true"
+spec:
+  tls:
+  - hosts:
+      - nginxmanual.ioinfo.shop
+    secretName: nginxmanual-tls
+  rules:
+  - host: nginxmanual.ioinfo.shop
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service-manual
+            port:
+              number: 80
