@@ -1,29 +1,24 @@
 #!/usr/bin/env demosh
 
-echo "Welcome to the demo!"
+echo "Welcome to the demo! For the manual demonstration of issuance of certificates for kubernetes applications"
 
 read -p "Press enter to continue"
 
 # Run a Kubernetes command
-kubectl get pods -n tensure
+sudo certbot certonly --manual --preferred-challenges=dns -d nginxmanual2.ioinfo.shop
 
 read -p "Press enter to continue"
 
-# Wait for user to continue (press ENTER)
-echo "Now let's describe a ingress"
+sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/fullchain.pem /Users/vamsikrishna/managebee/td-cert-manager-app-config/manifests/without-cert-manager/manual-nginx-keys/fullchain.crt
+
+sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/privkey.pem /Users/vamsikrishna/managebee/td-cert-manager-app-config/manifests/without-cert-manager/manual-nginx-keys/privatekey.key
+
+echo "Copied fullchain certificate and private key to required path"
+
+sudo chown vamsikrishna *
 
 read -p "Press enter to continue"
 
-# Run another command
-kubectl describe ingress demo-ingress -n tensure
+kubectl create secret tls nginxmanual2-tls --cert=/Users/vamsikrishna/managebee/td-cert-manager-app-config/manifests/without-cert-manager/manual-nginx-keys/fullchain.crt --key=/Users/vamsikrishna/managebee/td-cert-manager-app-config/manifests/without-cert-manager/manual-nginx-keys/privatekey.key -n manual
 
-read -p "Press enter to continue"
-
-# Automatically execute after 2 seconds
-sleep 2
-
-echo "run automatically"
-
-read -p "Press enter to continue"
-
-kubectl get certificate -n tensure
+echo "Next, Go ahead and deploy applications using ArgoCD"

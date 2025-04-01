@@ -20,9 +20,9 @@ sudo certbot certonly --manual --preferred-challenges=dns -d nginxmanual2.ioinfo
 
 Manually perform dns validation ( this will be done by cert-manager )
 
-sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/fullchain.pem fullchain.crt
+sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/fullchain.pem /Users/vamsikrishna/managebee/td-cert-manager-app-config/manifests/without-cert-manager/manual-nginx-keys/fullchain.crt
 
-sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/privkey.pem privatekey.key
+sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/privkey.pem /Users/vamsikrishna/managebee/td-cert-manager-app-config/manifests/without-cert-manager/manual-nginx-keys/privatekey.key
 
 sudo chown vamsikrishna *
 
