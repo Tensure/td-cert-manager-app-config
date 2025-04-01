@@ -9,9 +9,9 @@ spec:
   tls:
   - hosts:
       - nginxmanual.ioinfo.shop
-    secretName: nginxmanual-tls
+    secretName: nginxmanual1-tls
   rules:
-  - host: nginxmanual.ioinfo.shop
+  - host: nginxmanual1.ioinfo.shop
     http:
       paths:
       - path: /
