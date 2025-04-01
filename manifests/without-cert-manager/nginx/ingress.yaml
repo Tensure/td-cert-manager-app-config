@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-      - nginxmanual1.ioinfo.shop
-    secretName: nginxmanual1-tls
+      - nginxmanual2.ioinfo.shop
+    secretName: nginxmanual2-tls
   rules:
-  - host: nginxmanual1.ioinfo.shop
+  - host: nginxmanual2.ioinfo.shop
     http:
       paths:
       - path: /

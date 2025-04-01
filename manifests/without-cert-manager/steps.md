@@ -16,17 +16,17 @@ option2 :
 
 brew install certbot
 
-sudo certbot certonly --manual --preferred-challenges=dns -d nginxmanual.ioinfo.shop
+sudo certbot certonly --manual --preferred-challenges=dns -d nginxmanual2.ioinfo.shop
 
 Manually perform dns validation ( this will be done by cert-manager )
 
-sudo cp /etc/letsencrypt/live/nginxmanual1.ioinfo.shop/fullchain.pem fullchain.crt
+sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/fullchain.pem fullchain.crt
 
-sudo cp /etc/letsencrypt/live/nginxmanual1.ioinfo.shop/privkey.pem privatekey.key
+sudo cp /etc/letsencrypt/live/nginxmanual2.ioinfo.shop/privkey.pem privatekey.key
 
 sudo chown vamsikrishna *
 
-kubectl create secret tls nginxmanual-tls --cert=fullchain.crt --key=privatekey.key -n manual
+kubectl create secret tls nginxmanual2-tls --cert=fullchain.crt --key=privatekey.key -n manual
 
 Post a ingress LB Is created , copy the ingress IP and manually create a record for the domain pointing to this iP ( this will be done by external-dns )
 
