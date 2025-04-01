@@ -25,7 +25,7 @@ spec:
             exclude: properties.yaml
       destination:
         server: "{{url}}"
-        namespace: "nginx"
+        namespace: "manual"
       syncPolicy:
         automated: {}
         syncOptions:
